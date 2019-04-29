@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+    Created on : 31/01/2019, 11:06:00 AM
+    Author     : Ricardo Presilla.
+    Licencia GNU.
+-->
+<html>
+    <head>
+        <title>Vue.js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
+        <link href="css/estilos.css" rel="stylesheet" /> 
+    </head>
+    <body>
+        <h1 id="app" v-if="ok">Yes</h1>
+        <div id="app-2">
+        <template v-if="ok">
+          <h1>Title</h1>
+          <p>Paragraph 1</p>
+          <p>Paragraph 2</p>
+        </template>
+        </div>
+        <div id="app-3">
+            <div v-if="Math.random() > 0.5">
+              Ahora me ves
+            </div>
+            <div v-else>
+              Ahora no me ves
+            </div>
+        </div>
+        <div id="app-4">
+            <div v-if="type === 'A'">
+              A
+            </div>
+            <div v-else-if="type === 'B'">
+              B
+            </div>
+            <div v-else-if="type === 'C'">
+              C
+            </div>
+            <div v-else>
+              Not A/B/C
+            </div>
+        </div>
+        <div id="app-5">
+            <p>Vue.js permite crear inicios de sección con multiples </p>
+            <template v-if="loginType === 'username'">
+                <label class="etiquetas">Login</label>
+                <input placeholder="Escriba su usuario">
+            </template>
+            <template v-else>
+                <label class="etiquetas">Email</label>
+                <input placeholder="Escriba su email">
+            </template>
+            <input type="button" value="Cambio de login" name="cambio" @click="cambio()" />
+        </div>
+        <div id="app-6">
+            <p>Vue.js permite crear inicios de sección con multiples. Usando 
+                button, Agregue un atributo key con valores únicos.</p>
+            <template v-if="loginType === 'username'">
+              <label>Login</label>
+              <input placeholder="Escriba su login de usuario" key="username-input">
+            </template>
+            <template v-else>
+              <label>Email</label>
+              <input placeholder="Escriba su email" key="email-input">
+            </template>
+            <button id="boton" v-on:click="cambio">Cambio de login</button>
+        </div>
+        <div >
+            <h1 v-show="ok">Hola</h1>
+        </div>
+        <script src="js/condicionales.js" type="text/javascript"></script>
+    </body>
+</html>
